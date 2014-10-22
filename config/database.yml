@@ -20,7 +20,7 @@ development:
   database: live-chair_development
   pool: 5
   username: live-chair
-  password:
+  password: live-chair
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,7 +49,7 @@ test:
   database: live-chair_test
   pool: 5
   username: live-chair
-  password:
+  password: live-chair
 
 production:
   adapter: postgresql

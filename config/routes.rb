@@ -1,6 +1,9 @@
 LiveChair::Application.routes.draw do
+  resources :projects
+
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
+      resources :projects
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
