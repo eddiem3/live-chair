@@ -15,19 +15,20 @@
 Let's say we already have a resource for barbers and we want a function to list all barbers
 
 1. Add the resource under the api version 1 namespace
-
- `namespace :api, defaults: {format: 'json'} do
+```
+ namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :barbers
-    end`
+    end
+```
 
 2. Make a new controller at app/controllers/api/v1/barbers_controller.rb. 
   a. Notice because of the namespacing our controller class is nested in two modules.
   b. We are using respond_to :json at the class level because rails will throw an error otherwise :/
 
 3. Encapsulate the controller in the Api and V1 module
-   
-   `module Api
+   ```
+   module Api
       module V1
          
          
@@ -35,19 +36,22 @@ Let's say we already have a resource for barbers and we want a function to list 
 	   respond_to :json	
          end
       end
-   end`
-
+   end
+   ```
 4. Add necessary index function
-
-      `def index
+   ```
+      def index
         @barbers = Barber.all
       end`
+   ```	
     
     There's no need to add anything else because rabl is handling the view and our routes.rb and our class know to render json. We don't even     have to say render
 
 5. Make a rabl file at app/views/api/v1/barbers/index.json.rabl to determine which parameters to provide in json format.
-   `collection @projects
+   ```
+   collection @projects
    attributes :id, :name`
+   ```
 
 6. Point your browser to localhost:3000/api/v1/barbers and you should have some awesome JSON!
 
@@ -55,8 +59,8 @@ Let's say we already have a resource for barbers and we want a function to list 
 You can copy this test I did to get you started.
 
 ###app/controllers/api/v1/projects_controller.rb
-
-`module Api
+```
+ module Api
   module V1
     class ProjectsController < ApplicationController
       
@@ -85,12 +89,15 @@ You can copy this test I did to get you started.
     end
 
   end
-end`
+end
+```
 
 
 ###Index.json.rabl:
-`collection @projects
-attributes :id, :name, :description`
+```
+collection @projects
+attributes :id, :name, :description
+```
 
 
 
