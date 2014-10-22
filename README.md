@@ -29,9 +29,7 @@ Let's say we already have a resource for barbers and we want a function to list 
 3. Encapsulate the controller in the Api and V1 module
    ```
    module Api
-      module V1
-         
-         
+      module V1         
          class BarbersController < ApplicationController
 	   respond_to :json	
          end
@@ -99,6 +97,8 @@ collection @projects
 attributes :id, :name, :description
 ```
 
+##README TODO
+1. Specify conventions for api calls
 
 
 
