@@ -93,12 +93,13 @@ end
 
 ###Index.json.rabl:
 ```
-collection @projects
-attributes :id, :name, :description
+collection @barbers
+attributes :id, :name, :skills
 ```
 
 ##README TODO
 1. Specify conventions for api calls
+2. Choose a templating engine like Slim or Haml.
 
 
 
