@@ -31,7 +31,7 @@ Let's say we already have a resource for barbers and we want a function to list 
    module Api
       module V1         
          class BarbersController < ApplicationController
-	   respond_to :json	
+	     respond_to :json	
          end
       end
    end
