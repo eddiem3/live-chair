@@ -1,4 +1,14 @@
+require "monban/constraints/signed_in"
+require "monban/constraints/signed_out"
 LiveChair::Application.routes.draw do
+  constraints Monban::Constraints::SignedIn.new do
+    root "dashboards#show", as: :dashboard
+  end
+  constraints Monban::Constraints::SignedOut.new do
+    root "welcome#show"
+  end
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :projects

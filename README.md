@@ -97,15 +97,33 @@ collection @barbers
 attributes :id, :name, :skills
 ```
 
+##Project Work Flow
+It is essential we stick with this work flow, especially the 'how to merge' section below will help us contain merge conflicts
+
+1. Assign trello card to self
+2. Create branch based on trello card functionality (e.g. git checkout -b mm-sign-up)
+3. Work on branch, create small commits
+4. Push up to origin: git push origin mm-sign-up
+5. Review commits, add link to trello card, and create PR (Pull Request)
+6. Incorporate feedback, repeat #5 until no more feedback
+
+###HOW TO MERGE
+```
+1. git checkout master
+2. git pull --rebase origin master
+3. git checkout mm-sign-up
+4. git rebase -i master
+5. git checkout master
+6. git merge mm-sign-up
+7. git push origin master
+```
+
+###DELETION OF BRANCHES
+```
+1. git push origin :mm-sign-up
+2. git branch -d mm-sign-up
+```
+
 ##README TODO
 1. Specify conventions for api calls
 2. Choose a templating engine like Slim or Haml.
-
-
-
-
-
-
-
-
-
