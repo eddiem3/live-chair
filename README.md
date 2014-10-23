@@ -91,10 +91,10 @@ end
 ```
 
 
-###Index.json.rabl:
+###index.json.rabl:
 ```
-collection @barbers
-attributes :id, :name, :skills
+collection @projects
+attributes :id, :name
 ```
 
 ##Project Work Flow
