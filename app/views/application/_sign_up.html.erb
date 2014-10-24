@@ -24,6 +24,9 @@
     <%= form.password_field :password %>
   </div>
   <div>
+    Are you are a Barber? <%= form.check_box :barber %>
+  </div>
+  <div>
     <%= form.submit "Sign up" %>
   </div>
 <% end %>
