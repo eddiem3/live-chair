@@ -1,0 +1,31 @@
+<%= form_for @profile, url: profiles_path, html: { :multipart => true } do |form| %>
+
+  <% if @profile.errors.any? %>
+    <%= pluralize(@profile.errors.count, "error") %> prevented your profile from being created:
+    <ul>
+      <% @profile.errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.file_field :avatar %>
+  </div>
+  <div>
+    Shop name <%= form.text_field :shop_name %>
+  </div>
+  <div>
+    Phone number <%= form.text_field :phone %>
+  </div>
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+  <div>
+    City <%= form.text_field :city %>
+    State <%= form.text_field :state %>
+    Zip <%= form.text_field :zip %>
+  <div>
+    <%= form.submit "Finish" %>
+  </div>
+<% end %>
