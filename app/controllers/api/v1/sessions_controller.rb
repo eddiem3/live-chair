@@ -1,6 +1,6 @@
 #module Api
 #  module V1
-    class API::V1::SessionsController 
+    class API::V1::SessionsController < ApplicationController
       
       def create
         user = authenticate_session(session_params)

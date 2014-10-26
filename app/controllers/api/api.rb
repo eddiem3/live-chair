@@ -1,2 +1,2 @@
-module API < ApplicationController
+module API 
 end
