@@ -13,6 +13,7 @@ LiveChair::Application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
+      resources :projects
       resource :session, only: [:new, :create, :destroy]
     end
   end
