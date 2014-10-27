@@ -10,8 +10,9 @@
         if sign_in(user)
           render :status => 200,
           :json => { :success => true,
-            :info => "Logged in",
-            :data => { :auth_token => current_user.authentication_token } }
+            :info => "Logged in"}
+           
+            #:data => { :auth_token => current_user.authentication_token } }
           
         else
           render :status => 401,
@@ -35,8 +36,10 @@
       private
 
       def session_params
-        params.require(:session).permit(:email, :password)
+        json_params = ActionController::Parameters.new( JSON.parse(request.body.read))
+        return json_params.require(:session).permit(:email, :password)
       end
+
     end  
 #  end
 #end
