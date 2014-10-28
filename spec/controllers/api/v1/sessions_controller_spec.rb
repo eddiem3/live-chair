@@ -11,13 +11,22 @@ RSpec.describe API::V1::SessionsController, :type => :controller do
     
     it "should create a session" do
       
-      json = { :format => 'json', :session => { :email => @user.email, :password => @user.password_digest }}.to_json
+      session_params = { :format => 'json', :session => { :email => @user.email, :password => @user.password_digest }}.to_json
 
 
-      post :create, json
+      post :create, session_params
       
 
       expect(response).to be_success
     end
+
+    # it "should not create a session" do
+    #   session_params = { :format => 'json', :session => { :email => @user.email, :password => "wrong_password" }}.to_json
+      
+    #   post :create, session_params
+
+    #   expect(response).to eq(401)
+    # end
+    
   end
 end
