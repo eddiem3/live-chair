@@ -9,14 +9,22 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+
 group :doc do
   gem 'sdoc', require: false
 end
+
 group :test, :development do
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false #Rspec DSL Help
   gem 'rspec-rails'
   gem 'factory_girl_rails'			
+  gem 'spork-rails'   #Autoload rails to speed up tests
+  gem 'guard-spork'
+  gem 'json_spec'  #Helpers for capybara json testing
 end
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'rabl'
 

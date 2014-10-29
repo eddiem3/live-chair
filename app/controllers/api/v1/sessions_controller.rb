@@ -6,13 +6,15 @@ class API::V1::SessionsController < ApplicationController
     user = authenticate_session(session_params)
     
     if sign_in(user)
-      render :status => 200,
-      :json => { :success => true,
-        :info => "Logged in"}
+      
+      render :status => 200, 
+      :json => {:success => true, :info => "Logged in", :data => {}}
+      
       
       #:data => { :auth_token => current_user.authentication_token } }
       
     else
+      
       render :status => 401,
       :json => { :success => false,
         :info => "Login Failed",
