@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
-
+  def new
+  end
 
   def create
     user = authenticate_session(session_params)
@@ -24,4 +25,3 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:email, :password)
   end
 end
-
