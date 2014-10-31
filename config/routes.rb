@@ -8,12 +8,21 @@ LiveChair::Application.routes.draw do
     root "welcome#show"
   end
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    collection do
+      get 'barbers'
+    end
+  end
   resources :profiles, only: [:new, :create]
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resource :session, only: [:new, :create, :destroy]
+      resources :users, only: [:new, :create] do
+        collection do
+          get 'barbers'
+        end
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
