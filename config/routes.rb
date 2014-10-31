@@ -1,6 +1,7 @@
 require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 LiveChair::Application.routes.draw do
+  get "v1/fake"
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end
@@ -8,11 +9,7 @@ LiveChair::Application.routes.draw do
     root "welcome#show"
   end
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create] do
-    collection do
-      get 'barbers'
-    end
-  end
+  resources :users, only: [:new, :create]
   resources :profiles, only: [:new, :create]
 
   namespace :api, defaults: {format: 'json'} do

@@ -1,7 +1,7 @@
 class API::V1::UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token,
   :if => Proc.new { |c| c.request.format == 'application/json' }
-  
+  skip_before_action :require_login, only: [:new, :create]
   
   def index
     @users = User.all
@@ -20,13 +20,20 @@ class API::V1::UsersController < ApplicationController
 
     if @user.valid?
       sign_in(@user)
-      redirect_to root_path
+      
+      render :status => 200,
+      :json => { :success => true,
+        :info => "Registered",
+        :data => { :user => @user}}
+        
     else
-      render :new
+      render :status => :unprocessable_entity,
+      :json => { :success => false,
+        :info => {},
+        :data => {} }
     end
   end
 
-  
   private
 
   def user_params
