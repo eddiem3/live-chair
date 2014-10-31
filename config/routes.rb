@@ -1,7 +1,6 @@
 require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 LiveChair::Application.routes.draw do
-  get "v1/fake"
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end
