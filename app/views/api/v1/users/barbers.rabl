@@ -1,0 +1,2 @@
+collection @barbers
+attributes :id
