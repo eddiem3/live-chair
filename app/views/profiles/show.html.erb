@@ -1,3 +1,18 @@
-Coming soon!!!
+<br />
 
-<%= render "review_form" %>
+<div>
+<%= image_tag @profile.avatar.url(:thumb) %>
+</div>
+
+<div>
+  <%= @profile.user.fname %>
+</div>
+
+<div>
+  <%= @profile.shop_name %><br />
+  <%= @profile.address %><br />
+  <%= @profile.state %><br />
+  <%= @profile.city %><br />
+  <%= @profile.zip %><br />
+  <%= @profile.phone %>
+</div>

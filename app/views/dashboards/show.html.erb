@@ -3,7 +3,11 @@
     <li><%= content_tag :div, msg, class: name %></li>
   <% end -%>
 </ul>
-<% if current_user.is_a_barber_and_profile_is_complete
+<% if !current_user.barber %>
+  <h1> WELCOME CUSTOMER </h1>
+
+  <%= button_to "View Barbers", profiles_path, method: :get %>
+<% elsif current_user.is_a_barber_and_profile_is_complete
 %>
 <h1> WELCOME </h1>
 <% else %>
