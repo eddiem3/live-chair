@@ -9,8 +9,10 @@ LiveChair::Application.routes.draw do
   end
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :profiles, only: [:new, :create]
-  resources :reviews
+  resources :profiles, only: [:new, :create] do
+    resources :reviews, only: [:index, :new, :create, :show, :destroy]
+  end
+  
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :projects
