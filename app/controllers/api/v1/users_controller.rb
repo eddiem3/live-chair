@@ -8,7 +8,7 @@ class API::V1::UsersController < ApplicationController
   end
 
   def barbers
-    @barbers = User.find(:all, :conditions => {:barber=>true})
+    @barbers = User.where(barber: true)
   end
 
   def new
