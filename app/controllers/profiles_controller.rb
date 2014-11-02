@@ -15,18 +15,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+
   def index 
     @profiles = Profile.all
-      #User.where(barber: :true)
-    #@profiles = Profile.
   end
 
   def show
-
     @profile = Profile.find(params[:id])
-    @review = Review.new
+    @review = @profile.reviews.new
     @reviews = @profile.reviews
-    #@reviews = @profile.reviews
+   
   end
 
   private

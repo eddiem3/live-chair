@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
+	before_filter :can_make_review, :only => [:create, :destroy]
 
 	def create
 		@current_profile = Profile.find(params[:review][:profile_id])
 		@review = @current_profile.reviews.build(review_params)
 		
-		
-		#@review = Review.new(review_params)
 		if @review.save
 			flash[:success] = "Review created"
 			redirect_to :back
@@ -24,12 +23,11 @@ class ReviewsController < ApplicationController
 
 	def review_params
 		params.require(:review).permit(:comment, :rating, :user_id)
-		#merge(profile_id: :profile_id)
+	end
+
+	def can_make_review
+		return !current_user.barber
 	end
 end
-
-# def create
-# 	@profile = Profile.find(params[:profile_id])
-# 	@review = @profile.reviews.create(review_params)
 
 

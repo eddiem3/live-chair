@@ -203,7 +203,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.5.1)
+    turbolinks (2.5.0)
       coffee-rails
     tzinfo (0.3.42)
     uglifier (2.5.3)
