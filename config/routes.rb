@@ -22,6 +22,9 @@ LiveChair::Application.routes.draw do
           get 'barbers'
         end
       end
+      resources :profiles, only: [:index, :show, :new, :create] do
+        resources :reviews, only: [:index, :new, :create, :show, :destory]
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
