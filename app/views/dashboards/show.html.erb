@@ -15,11 +15,5 @@
   <%= button_to "Continue", new_profile_path, method: :get %>
 <% end %>
 
-<% if !current_user.is_a_barber_and_profile_is_complete
-%>
-<h1> WELCOME </h1>
-<% else %>
-  <h1> PLEASE COMPLETE PROFILE </h1>
-  <%= button_to "Continue", new_profile_path, method: :get %>
-<% end %> 
+
 

@@ -16,3 +16,22 @@
   <%= @profile.zip %><br />
   <%= @profile.phone %>
 </div>
+
+<div>
+<br />
+
+
+<% if !current_user.barber %>
+<b>Leave me a review!</b>
+<%= render 'review_form' %>
+<% end %>
+</div>
+
+<div>
+<b>What people are saying.</b>
+<br />
+<%= render 'review' %>
+<hr/>
+</div>
+
+

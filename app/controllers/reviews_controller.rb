@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
 
 	def create
-		# @current_profile = Profile.find(params[:review][:profile_id])
-		# @review = @current_profile.reviews.build(review_params)
+		@current_profile = Profile.find(params[:review][:profile_id])
+		@review = @current_profile.reviews.build(review_params)
 		
-		@review = Review.new(review_params)
+		
+		#@review = Review.new(review_params)
 		if @review.save
 			flash[:success] = "Review created"
-			redirect_to root_url
+			redirect_to :back
 		else
 			flash[:failure] = "Review can not be created"
-			redirect_to root_url
+			redirect_to :back
 		end
 	end
 
@@ -22,8 +23,8 @@ class ReviewsController < ApplicationController
 	private
 
 	def review_params
-		params.require(:review).permit(:comment, :rating, :user_id).
-		merge(profile: profile_id)
+		params.require(:review).permit(:comment, :rating, :user_id)
+		#merge(profile_id: :profile_id)
 	end
 end
 

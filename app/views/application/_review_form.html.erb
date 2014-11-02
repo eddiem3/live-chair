@@ -8,7 +8,7 @@
     	<%= f.select :rating, (1..5) %>
   	</div>
   	<div>
-  		<%= f.hidden_field :user_id, :value => current_user %>
+  		<%= f.hidden_field :user_id, :value => current_user.id %>
   	</div>
   	<div>
   		<%= f.hidden_field :profile_id, :value => @profile.id %>

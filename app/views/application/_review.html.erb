@@ -1,4 +1,6 @@
-<li>
-	<%= #{"Rating review.rating"} %>
-	<%= #{"Comment review.comment"} %>
-</li>
+<% @reviews.each do |review| %>
+	Rating: <%= review.rating %>
+	<br />
+	Comment: <%= review.comment %>
+	<hr/>
+<% end %>
