@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   def is_a_barber_and_profile_is_complete
     barber && profile
   end
+  
 end
