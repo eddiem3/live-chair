@@ -17,7 +17,7 @@ LiveChair::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resource :session, only: [:new, :create, :destroy]
-      resources :users, only: [:new, :create] do
+      resources :users, only: [:index, :new, :create] do
         collection do
           get 'barbers'
         end
