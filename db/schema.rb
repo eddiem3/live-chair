@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027172519) do
+ActiveRecord::Schema.define(version: 20141105214217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20141027172519) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
+  create_table "profiles_skill_lists", force: true do |t|
+    t.integer  "profile_id"
+    t.integer  "skill_list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles_skill_lists", ["profile_id"], name: "index_profiles_skill_lists_on_profile_id", using: :btree
+  add_index "profiles_skill_lists", ["skill_list_id"], name: "index_profiles_skill_lists_on_skill_list_id", using: :btree
+
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
     t.text     "comment"
@@ -53,6 +63,12 @@ ActiveRecord::Schema.define(version: 20141027172519) do
   end
 
   add_index "reviews", ["profile_id"], name: "index_reviews_on_profile_id", using: :btree
+
+  create_table "skill_lists", force: true do |t|
+    t.string   "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "fname",                           null: false
