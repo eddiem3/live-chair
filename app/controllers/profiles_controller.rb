@@ -24,7 +24,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @review = @profile.reviews.new
     @reviews = @profile.reviews
-   
   end
 
   private
