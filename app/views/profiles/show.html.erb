@@ -1,11 +1,20 @@
 <br />
 
 <div>
-<%= image_tag @profile.avatar.url(:thumb) %>
+  <%= image_tag @profile.avatar.url(:thumb) %>
 </div>
 
 <div>
   <%= @profile.user.fname %>
+</div>
+
+<div>
+  Services include: 
+  <ul>
+    <% @profile.skill_lists.each do |list| %>
+      <li><%= list.skill %></li>
+    <% end %>
+  </ul>
 </div>
 
 <div>
@@ -18,20 +27,20 @@
 </div>
 
 <div>
-<br />
-
-
-<% if !current_user.barber %>
-<b>Leave me a review!</b>
-<%= render 'review_form' %>
-<% end %>
+  <% if !current_user.barber %>
+    <b>Leave me a review!</b>
+    <%= render 'review_form' %>
+  <% end %>
 </div>
 
 <div>
-<b>What people are saying.</b>
-<br />
-<%= render 'review' %>
-<hr/>
+  <div>
+    <b>What people are saying.</b>
+  </div>
+  <div>
+    <%= render 'review' %>
+  </div>
+  <hr/>
 </div>
 
 

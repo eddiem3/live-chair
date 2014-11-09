@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.
-      require(:profile).permit(:avatar, :shop_name, :phone, :address, :city, :state, :zip).
+      require(:profile).permit(:avatar, :shop_name, :phone, :address, :city, :state, :zip, skill_list_ids: []).
       merge(user: current_user)
   end
 end
