@@ -38,7 +38,7 @@ class API::V1::ProfilesController < ApplicationController
     json_params = ActionController::Parameters.new( JSON.parse(request.body.read))
     return json_params.require.
       (:profile).
-      permit(:avatar, :shop_name, :address, :state, :city, :zip, :phone).
+      permit(:avatar, :shop_name, :address, :state, :city, :zip, :phone, skill_list_ids: []).
       merge(user: current_user)
   end
 end
