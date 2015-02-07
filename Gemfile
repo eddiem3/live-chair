@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+ruby '2.1.2'
+
 gem 'rails', '4.0.8'
 gem 'pg'
 gem 'monban'
@@ -32,4 +35,3 @@ end
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'rabl'
-
