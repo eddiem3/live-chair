@@ -25,6 +25,11 @@ group :test, :development do
   gem 'json_spec'  #Helpers for capybara json testing
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'thin', '~> 1.6.2'
+end
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'rabl'
 
