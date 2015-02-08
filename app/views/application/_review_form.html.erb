@@ -1,0 +1,20 @@
+<%= form_for [@profile, @review] do |f| %>
+	<div>
+    	<%= f.label :comment %>
+    	<%= f.text_field :comment %>
+ 	</div>
+ 	<div>
+    	<%= f.label :rating %>
+    	<%= f.select :rating, (1..5) %>
+  	</div>
+  	<div>
+  		<%= f.hidden_field :user_id, :value => current_user.id %>
+  	</div>
+  	<div>
+  		<%= f.hidden_field :profile_id, :value => @profile.id %>
+  	</div>
+  	<div>
+    	<%= f.submit "Post" %>
+  	</div>
+
+ <% end %>

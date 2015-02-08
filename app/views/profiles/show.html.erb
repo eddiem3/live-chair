@@ -1,0 +1,47 @@
+<br />
+
+<div>
+  <%= image_tag @profile.avatar.url(:thumb) %>
+</div>
+
+<div>
+  <%= @profile.user.fname %>
+</div>
+
+<div>
+  Services include: 
+  <ul>
+    <% @profile.skill_lists.each do |list| %>
+      <li><%= list.skill %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <%= @profile.shop_name %><br />
+  <%= @profile.address %><br />
+  <%= @profile.state %><br />
+  <%= @profile.city %><br />
+  <%= @profile.zip %><br />
+  <%= @profile.phone %>
+</div>
+
+<div>
+  <hr/>
+  <% if !current_user.barber %>
+    <b>Leave me a review!</b>
+    <%= render 'review_form' %>
+  <% end %>
+</div>
+
+<div>
+  <div>
+    <b>What people are saying.</b>
+  </div>
+  <div>
+    <%= render 'review' %>
+  </div>
+  <hr/>
+</div>
+
+

@@ -1,5 +1,4 @@
-<%= form_for @profile, url: profiles_path, html: { :multipart => true } do |form| %>
-
+<div>
   <% if @profile.errors.any? %>
     <%= pluralize(@profile.errors.count, "error") %> prevented your profile from being created:
     <ul>
@@ -8,11 +7,20 @@
       <% end %>
     </ul>
   <% end %>
+</div>
+<%= form_for @profile, url: profiles_path, html: { :multipart => true } do |form| %>
+
   <div>
     <%= form.file_field :avatar %>
   </div>
   <div>
     Shop name <%= form.text_field :shop_name %>
+  </div>
+  <div>
+    I specialize in 
+    <div>
+      <%= form.collection_check_boxes(:skill_list_ids, SkillList.all, :id, :skill) %>
+    </div>
   </div>
   <div>
     Phone number <%= form.text_field :phone %>
@@ -25,7 +33,7 @@
     City <%= form.text_field :city %>
     State <%= form.text_field :state %>
     Zip <%= form.text_field :zip %>
-  <div>
-    <%= form.submit "Finish" %>
-  </div>
-<% end %>
+    <div>
+      <%= form.submit "Finish" %>
+    </div>
+  <% end %>

@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+ruby '2.1.2'
+
 gem 'rails', '4.0.8'
 gem 'pg'
 gem 'monban'
@@ -25,6 +28,10 @@ group :test, :development do
   gem 'json_spec'  #Helpers for capybara json testing
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'thin', '~> 1.6.2'
+end
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'rabl'
-

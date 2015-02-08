@@ -1,0 +1,8 @@
+<div>
+  <% @profiles.map do |profile| %>
+    <div>
+      <%= link_to "#{profile.user.fname+" "+profile.user.lname}", profile %>
+    </div>
+  <% end %>
+</div>
+
