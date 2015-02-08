@@ -23,6 +23,7 @@ LiveChair::Application.routes.draw do
         resources :appointments
         collection do
           get 'barbers'
+          get 'profiles'
         end
       end
       resources :profiles, only: [:index, :show, :new, :create] do

@@ -37,9 +37,7 @@ class API::V1::UsersController < ApplicationController
   private
 
   def user_params
-    json_params = ActionController::Parameters.new( JSON.parse(request.body.read))
+    json_params = ActionController::Parameters.new(JSON.parse(request.body.read))
     return json_params.require(:user).permit(:fname,:lname,:email, :password, :barber)
   end
 end  
-
-

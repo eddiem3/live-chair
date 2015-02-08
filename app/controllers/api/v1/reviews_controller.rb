@@ -2,6 +2,11 @@ class API::V1::ReviewsController < ApplicationController
 	before_filter :can_make_review, :only => [:create, :destroy]
 	respond_to :json
 
+	def index
+		profile = Profile.find(params[:profile_id])
+		@reviews = profile.reviews
+	end
+
 	def create
 		@current_profile = Profile.find(params[:review][:profile_id])
 		@review = @current_profile.reviews.build(review_params)
